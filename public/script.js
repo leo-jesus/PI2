@@ -74,3 +74,59 @@ const scrollToBottom = () => {
   let d = $(".main__chat_widow");
   d.scrollTop(d.prop("scrollHeight"));
 };
+
+//muta o vídeo
+const muteUnmute = () => {
+  const enabled = streamVideo.getAudioTracks()[0].enabled;
+  if (enabled) {
+    streamVideo.getAudioTracks()[0].enabled = false;
+    setUnmuteButton();
+  } else {
+    setMuteButton();
+    streamVideo.getAudioTracks()[0].enabled = true;
+  }
+};
+
+const playStop = () => {
+  console.log("object");
+  let enabled = streamVideo.getVideoTracks()[0].enabled;
+  if (enabled) {
+    streamVideo.getVideoTracks()[0].enabled = false;
+    setPlayVideo();
+  } else {
+    setStopVideo();
+    streamVideo.getVideoTracks()[0].enabled = true;
+  }
+};
+
+const setMuteButton = () => {
+  const html = `
+    <i class="fas fa-microphone"></i>
+    <span>Mudo</span>
+  `;
+  document.querySelector(".main__mute_button").innerHTML = html;
+};
+
+const setUnmuteButton = () => {
+  const html = `
+    <i class="unmute fas fa-microphone-slash"></i>
+    <span>Ligar</span>
+  `;
+  document.querySelector(".main__mute_button").innerHTML = html;
+};
+
+const setStopVideo = () => {
+  const html = `
+    <i class="fas fa-video"></i>
+    <span>Parar Video</span>
+  `;
+  document.querySelector(".main__video_button").innerHTML = html;
+};
+
+const setPlayVideo = () => {
+  const html = `
+  <i class="stop fas fa-video-slash"></i>
+    <span>Ligar Video</span>
+  `;
+  document.querySelector(".main__video_button").innerHTML = html;
+};
