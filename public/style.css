@@ -12,7 +12,10 @@ video {
   width: 400px;
   object-fit: cover;
 }
-
+#video-grid{
+  display: grid;
+  grid-template-columns: repeat(auto, minmax(400px, 1fr));
+}
 .main {
   height: 100vh;
   display: flex;
